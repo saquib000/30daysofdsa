@@ -1,0 +1,65 @@
+Given two strings s and t, return true if t is an
+anagram
+of s, and false otherwise.
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        stable ={}
+        ttable={}
+        
+        #using for loops - current best
+        for char in s :
+            if char not in stable.keys() :
+                stable[char]=1
+            else :
+                stable[char]+=1
+        
+        for char in t :
+            if char not in ttable.keys() :
+                ttable[char]=1
+            else :
+                ttable[char]+=1
+        
+
+        #using while loops
+        # lens=len(s)
+        # i=0
+        # while i < lens :
+        #     if s[i] not in stable.keys() :
+        #         stable[s[i]]=1
+        #     else :
+        #         stable[s[i]]+=1
+        #     i+=1
+        
+        # lent=len(t)
+        # i=0
+        # while i < lent :
+        #     if t[i] not in ttable.keys() :
+        #         ttable[t[i]]=1
+        #     else :
+        #         ttable[t[i]]+=1
+        #     i+=1
+        
+        #single while loop
+        # lens=len(s)
+        # lent=len(t)
+        # if lens!=lent :
+        #     return False
+        # else :
+        #     i=0
+        #     while i < lens :
+        #         if s[i] not in stable.keys() :
+        #             stable[s[i]]=1
+        #         else :
+        #             stable[s[i]]+=1
+
+        #         if t[i] not in ttable.keys() :
+        #             ttable[t[i]]=1
+        #         else :
+        #             ttable[t[i]]+=1
+
+        #         i+=1
+
+        return stable == ttable
+        
+        
