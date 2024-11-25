@@ -1,0 +1,27 @@
+ou are given an integer mountain array arr of length n where the values increase to a peak element and then decrease.
+
+Return the index of the peak element.
+
+Your task is to solve it in O(log(n)) time complexity.
+
+
+class Solution:
+    def peakIndexInMountainArray(self, arr: List[int]) -> int:
+        start = 1 
+        end = len(arr)-2
+
+        while start <= end :
+            mid = (start + end)//2
+            #case1: if mid is peak element
+            if arr[mid-1] < arr[mid] > arr[mid+1]:
+                return mid
+            #case2: if mid is in increasing part of array
+            if arr[mid]>arr[mid-1] :
+                start = mid + 1
+            #case3: if mid is in decreasing part of array
+            else:
+                end = mid - 1
+
+
+
+        
